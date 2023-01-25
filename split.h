@@ -16,7 +16,6 @@ struct Node
     next = n;
   }
 };
-
+void sort(Node*& head);
 void split(Node*& in, Node*& odds, Node*& evens);
-
 #endif
