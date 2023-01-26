@@ -16,6 +16,7 @@ the function below should be the only one in this file.
 void sort(Node*& head)
 {
   int temp =0;
+  if(head==nullptr) return;
   if(head->next==NULL) return;
   if(head->next->value < head->value)
   {
@@ -30,31 +31,25 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
-if(in==NULL) return;
-if(in->value%2==0) 
+if(in==nullptr) 
 {
+  return;
+}
+if(in->value%2==0)
+{
+  evens= new Node(3,nullptr);
   evens->value = in->value;
-  evens->next = new Node(3,NULL);
   split(in->next,odds,evens->next);
 }
-if(in->value%2==1)
+if(in->value%2!=0)
 {
+  odds= new Node(2,nullptr);
   odds->value = in->value;
-  odds->next = new Node(2,NULL);
   split(in->next,odds->next,evens);
-}
-if(evens->next!=NULL&&evens->next->value%2!=0)
-{
-  delete evens->next;
-  evens->next=NULL;
-}
-if(odds->next!=NULL&&odds->next->value%2==0)
-{
-  delete odds->next;
-  odds->next=NULL;
 }
 sort(odds);
 sort(evens);
 delete in;
+in = NULL;
 }
 /* If you needed a helper function, write it here */
