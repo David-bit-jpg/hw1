@@ -9,7 +9,6 @@
 #include <sstream>
 
 typedef int Seed;
-
 std::vector<Seed> make_random_seed_vector(size_t numTrials, Seed origSeed)
 {
 		std::mt19937 randEngine;
